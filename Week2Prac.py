@@ -1,4 +1,4 @@
-class bike:
+class Bike:
     def __init__(self):
         self.type = "Mountain Bike"
         self.max_gears = 6

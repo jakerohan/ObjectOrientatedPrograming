@@ -9,7 +9,7 @@ class Cyclist:
     def accelerate(self):
         print("Got to go fast.")
 
-    def apply_brakes(self):
+    def brake(self):
         print("Stopping!")
 
     def turn(self, direction):
