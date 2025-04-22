@@ -36,27 +36,45 @@ def display_word():
         letter = input("Enter a letter: ")
         if len(letter) != 1:
             print("Please enter a single letter")
+            print(UnderscoreString)
             continue
+
         if letter in GuessedLetters or letter.swapcase() in GuessedLetters:
             print("You have already guessed that letter")
+            print(UnderscoreString)
             continue
+
         if letter not in word or letter.swapcase() not in word:
             print("That letter is not in the word")
             GuessedLetters.append(letter)
-            count =+ 1
+            count += 1
+            print(UnderscoreString)
             continue
-        if letter in word or letter.swapcase() in word:
+
+        if letter in word:
             print("Good guess!")
             for i in range(len(word)):
                 if word[i] == letter:
                     UnderscoreString = UnderscoreString[:i] + letter + UnderscoreString[i + 1:]
-            count =+ 1
+            GuessedLetters.append(letter)
+            count += 1
             print(UnderscoreString)
             continue
+
+        if letter.swapcase() in word:
+            print("Good guess!")
+            for i in range(len(word)):
+                if word[i] == letter:
+                    UnderscoreString = UnderscoreString[:i] + letter + UnderscoreString[i + 1:]
+            GuessedLetters.append(letter.swapcase())
+            count += 1
+            print(UnderscoreString)
+            continue
+
         if UnderscoreString.lower() == word.lower():
             print("You win!")
             print(' it took you ', count, ' guesses')
-            break
+            continue
 
 
 
